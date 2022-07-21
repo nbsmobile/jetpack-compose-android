@@ -8,11 +8,11 @@ import androidx.core.content.ContextCompat
 import com.nbs.moviecompose.utils.ContextProvider
 
 fun getColorIntFromRes(@ColorRes colorResId : Int) : Int{
-    return ContextCompat.getColor(ContextProvider.get(), colorResId)
+    return ContextCompat.getColor(ContextProvider.instance.get(), colorResId)
 }
 
 fun TextStyle.withColor(color : Color) = this.copy(color = color)
 
 fun TextStyle.withSize(size : TextUnit) = this.copy(fontSize = size)
 
-fun Color.asDisabledColor() = this.copy(alpha = 0.5f)
+fun Color.asDisabledColor() = this.copy(alpha = 0.7f)

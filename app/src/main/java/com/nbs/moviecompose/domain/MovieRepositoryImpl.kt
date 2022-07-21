@@ -14,4 +14,12 @@ class MovieRepositoryImpl(private val api: MovieApi) : MovieRepository {
             }
         }
     }
+
+    override suspend fun getNowPlayingMovies(): Resource<List<Movie>> {
+        return execute {
+            api.getNowPlayingMovies().results.map {
+                it.toDomain()
+            }
+        }
+    }
 }

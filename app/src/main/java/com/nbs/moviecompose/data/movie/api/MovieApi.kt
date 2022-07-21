@@ -10,4 +10,10 @@ class MovieApi(private val apiClient: MovieApiClient) {
             apiClient.getPopularMovies()
         }
     }
+
+    suspend fun getNowPlayingMovies(): PaginationResponse<MovieResponse> {
+        return call {
+            apiClient.getNowPlayingMovies()
+        }
+    }
 }

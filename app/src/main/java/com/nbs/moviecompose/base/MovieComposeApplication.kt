@@ -24,8 +24,8 @@ class MovieComposeApplication : Application() {
                     featureModule
                 )
             )
+            ContextProvider.instance.initialize(applicationContext)
         }
-        ContextProvider.initialize(applicationContext)
     }
 
     override fun attachBaseContext(base: Context) {

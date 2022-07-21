@@ -6,8 +6,10 @@ import androidx.compose.ui.text.TextStyle
 
 abstract class BaseMovieComposeColors {
     abstract val colorPrimary: Color
-    abstract val colorSecondary: Color
-    abstract val statusBarColor: Color
+    abstract val colorAccent: Color
+    abstract val colorPrimaryDark: Color
+    abstract val colorTextPrimary: Color
+    abstract val colorTextSecondary: Color
 }
 
 val LocalMovieComposeColors = staticCompositionLocalOf<BaseMovieComposeColors> {
@@ -15,13 +17,13 @@ val LocalMovieComposeColors = staticCompositionLocalOf<BaseMovieComposeColors> {
     MovieComposeColorsDark()
 }
 
-abstract class BaseMovieComposeComposeTypography {
+abstract class BaseMovieComposeTypography {
     abstract val medium: TextStyle
     abstract val bold: TextStyle
     abstract val light: TextStyle
     abstract val normal: TextStyle
 }
 
-val LocalMovieComposeTypography = staticCompositionLocalOf<BaseMovieComposeComposeTypography> {
+val LocalMovieComposeTypography = staticCompositionLocalOf<BaseMovieComposeTypography> {
     MovieComposeTypography()
 }

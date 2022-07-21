@@ -1,6 +1,7 @@
 package com.nbs.moviecompose.domain.response
 
 import com.google.gson.annotations.SerializedName
+import com.nbs.moviecompose.utils.emptyString
 
 data class Movie(
     @SerializedName("poster_path")
@@ -31,4 +32,23 @@ data class Movie(
     var originalLanguage: String?,
     @SerializedName("release_date")
     var releaseDate: String?
-)
+){
+    companion object {
+        fun dummy() = Movie(
+            emptyString(),
+            false,
+            emptyString(),
+            0.0,
+            false,
+            emptyString(),
+            0L,
+            emptyString(),
+            listOf(),
+            0,
+            emptyString(),
+            0.0,
+            emptyString(),
+            emptyString()
+        )
+    }
+}

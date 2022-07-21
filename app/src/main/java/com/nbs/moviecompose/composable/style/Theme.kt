@@ -28,7 +28,7 @@ object MovieComposeTheme {
         @Composable
         get() = LocalMovieComposeColors.current
 
-    val typography: BaseMovieComposeComposeTypography
+    val typography: BaseMovieComposeTypography
         @Composable
         get() = LocalMovieComposeTypography.current
 }

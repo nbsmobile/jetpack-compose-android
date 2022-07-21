@@ -21,7 +21,7 @@ class ParameterInterceptor(private val params: HashMap<String, String>) : Interc
 
     private fun mapParameters(chain: Interceptor.Chain): HttpUrl {
         val original = chain.request()
-        val originalHttpUrl = original.url()
+        val originalHttpUrl = original.url
 
         val builder = originalHttpUrl.newBuilder()
 

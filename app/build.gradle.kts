@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("com.google.devtools.ksp") version "1.6.10-1.0.4"
 }
 
 android {
@@ -50,6 +51,14 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.1.1"
     }
+
+    applicationVariants.all {
+        kotlin.sourceSets {
+            getByName(name) {
+                kotlin.srcDir("build/generated/ksp/$name/kotlin")
+            }
+        }
+    }
 }
 
 dependencies {
@@ -76,6 +85,7 @@ dependencies {
     // Koin
     implementation("io.insert-koin:koin-android:3.1.4")
     implementation("io.insert-koin:koin-androidx-compose:3.1.4")
+    implementation("io.insert-koin:koin-android-ext:3.0.1")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -84,7 +94,26 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1")
 
-    //chucker
+    // Chucker
     debugImplementation("com.github.chuckerteam.chucker:library:3.5.2")
     releaseImplementation("com.github.chuckerteam.chucker:library-no-op:3.5.2")
+
+    // Compose Destinations
+    implementation("io.github.raamcosta.compose-destinations:animations-core:1.5.13-beta")
+    ksp("io.github.raamcosta.compose-destinations:ksp:1.5.13-beta")
+
+    // Compose Pager
+    implementation("com.google.accompanist:accompanist-pager:0.24.13-rc")
+
+    // Compose Constraint Layout
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+
+    // Compose Coil
+    implementation("io.coil-kt:coil-compose:2.0.0-rc01")
+
+    // Compose Page Indicators
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.24.13-rc")
+
+    // Compose Place Holder
+    implementation("com.google.accompanist:accompanist-placeholder-material:0.24.7-alpha")
 }

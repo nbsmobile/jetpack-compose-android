@@ -5,4 +5,5 @@ import com.nbs.moviecompose.domain.response.Movie
 
 interface MovieRepository {
     suspend fun getPopularMovies(): Resource<List<Movie>>
+    suspend fun getNowPlayingMovies(): Resource<List<Movie>>
 }

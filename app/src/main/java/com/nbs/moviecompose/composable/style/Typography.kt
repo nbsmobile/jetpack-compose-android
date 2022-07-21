@@ -40,4 +40,4 @@ data class MovieComposeTypography(
         fontWeight = FontWeight.Normal,
         color = Colors.black,
     )
-) : BaseMovieComposeComposeTypography()
+) : BaseMovieComposeTypography()

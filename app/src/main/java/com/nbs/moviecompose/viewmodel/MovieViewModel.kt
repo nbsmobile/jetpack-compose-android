@@ -18,8 +18,12 @@ class MovieViewModel(
     private val _popularMovies = MutableLiveData<Resource<List<Movie>>>()
     val popularMovies : LiveData<Resource<List<Movie>>> get() = _popularMovies
 
+    private val _nowPlayingMovies = MutableLiveData<Resource<List<Movie>>>()
+    val nowPlayingMovies : LiveData<Resource<List<Movie>>> get() = _popularMovies
+
     init {
         _popularMovies.value = init()
+        _nowPlayingMovies.value = init()
     }
 
     fun getPopularMovies(){
@@ -30,4 +34,11 @@ class MovieViewModel(
         }
     }
 
+    fun getNowPlayingMovies(){
+        viewModelScope.launch {
+            _nowPlayingMovies.value = loading()
+            val data = repository.getNowPlayingMovies()
+            _nowPlayingMovies.value = data
+        }
+    }
 }
