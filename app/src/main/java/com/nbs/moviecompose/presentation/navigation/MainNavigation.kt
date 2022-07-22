@@ -12,11 +12,11 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.nbs.moviecompose.composable.style.MovieComposeTheme
-import com.nbs.moviecompose.presentation.HomeScreen
+import com.nbs.moviecompose.presentation.main.HomeScreen
 import com.nbs.moviecompose.presentation.NavGraphs
-import com.nbs.moviecompose.presentation.SearchScreen
+import com.nbs.moviecompose.presentation.main.AwardScreen
 import com.nbs.moviecompose.presentation.destinations.HomeScreenDestination
-import com.nbs.moviecompose.presentation.destinations.SearchScreenDestination
+import com.nbs.moviecompose.presentation.destinations.AwardScreenDestination
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.manualcomposablecalls.composable
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -32,8 +32,8 @@ fun MainNavigationGraph(
         composable(HomeScreenDestination) {
             HomeScreen(navigator)
         }
-        composable(SearchScreenDestination) {
-            SearchScreen(navigator)
+        composable(AwardScreenDestination) {
+            AwardScreen(navigator)
         }
     }
 }
@@ -42,7 +42,7 @@ fun MainNavigationGraph(
 fun BottomNavigationMain(navController: NavController) {
     val items = listOf(
         MainBottomNavItem.Home,
-        MainBottomNavItem.Search,
+        MainBottomNavItem.Award,
     )
     BottomNavigation(
         backgroundColor = MovieComposeTheme.colors.colorPrimaryDark,

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorRaisinBlack"
+    tools:context=".presentation.detail.DetailActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/detailCollapseContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbarLayout"
+            app:contentScrim="@color/colorRaisinBlack"
+            app:expandedTitleTextAppearance="@style/TextAppearance.App.CollapsingToolbarLayout"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:scrimAnimationDuration="250">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="pin">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgDetailPoster"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorRaisinBlack"
+                    android:minHeight="@dimen/dimen_300dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_120dp"
+                    android:fontFamily="@font/sf_pro_text_bold"
+                    android:src="@drawable/bg_gradient_black"
+                    app:layout_constraintBottom_toBottomOf="@id/imgDetailPoster"
+                    app:layout_constraintEnd_toEndOf="@id/imgDetailPoster"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@id/imgDetailPoster" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDetailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginBottom="@dimen/dimen_9dp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/tvLanguage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/imgDetailPoster"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="Now You See Me 2" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_24dp"
+                    android:fontFamily="@font/sf_pro_text_light"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12sp"
+                    app:layout_constraintBottom_toTopOf="@id/tvLanguage"
+                    app:layout_constraintEnd_toEndOf="@id/tvDetailTitle"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/tvDetailTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvDetailTitle"
+                    tools:text="English" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDetailWatchTrailer"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_14dp"
+                    android:backgroundTint="@color/colorSunGlow"
+                    android:text="@string/action_watch_trailer"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_10sp"
+                    app:icon="@drawable/ic_watch"
+                    app:iconGravity="start"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/imgDetailPoster"
+                    app:layout_constraintEnd_toStartOf="@id/btnDetailAddToFavorite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLanguage" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDetailAddToFavorite"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_20dp"
+                    android:backgroundTint="@color/colorSunGlow"
+                    android:text="@string/action_add_to_favorite"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_10sp"
+                    app:icon="@drawable/ic_add"
+                    app:iconTint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@id/btnDetailWatchTrailer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btnDetailWatchTrailer"
+                    app:layout_constraintTop_toTopOf="@id/btnDetailWatchTrailer" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbarDetail"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorRaisinBlack">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDetailSynopsis"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_24dp"
+                android:layout_marginEnd="@dimen/dimen_20dp"
+                android:layout_marginBottom="@dimen/dimen_32dp"
+                android:fontFamily="@font/sf_pro_text_regular"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lineHeight="@dimen/dimen_22dp"
+                tools:text="Eighteen months after outwitting the FBI, the fugitive Four Horsemen – J. Daniel Atlas, Merritt McKinney, Jack Wilder, and new member Lula May – await orders from the Eye, the secret society of magicians. The Horsemen’s handler, FBI Special Agent Dylan Rhodes, delivers their instructions: the Horsemen are to expose corrupt tech CEO Owen Case, whose latest cell phone will secretly collect users’ personal data to sell on the black market. In New York City, the Horsemen hijack the phone’s launch, but are interrupted by a mysterious figure who reveals to the public that Jack faked his death, and that Dylan is working with the Horsemen. Dylan eludes the FBI as the Horsemen escape down a construction chute only to find themselves in Macau." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,4 +4,7 @@
     <string name="error_no_connection">Tidak ada koneksi internet, mohon cek internet Anda</string>
     <string name="action_retry">Retry</string>
     <string name="label_now_playing">Now Playing</string>
+    <string name="action_watch_trailer">Watch Trailer</string>
+    <string name="action_add_to_favorite">Add to Favorite</string>
+    <string name="label_cast">Cast</string>
 </resources>

@@ -28,9 +28,9 @@ data class MovieComposeColorsDark(
 
 @Immutable
 data class MovieComposeColorsLight(
-    override val colorPrimary: Color = Colors.white,
-    override val colorAccent: Color = Colors.white,
-    override val colorPrimaryDark: Color = Colors.white,
-    override val colorTextPrimary: Color = Colors.black,
-    override val colorTextSecondary: Color = Colors.black.asDisabledColor()
+    override val colorPrimary: Color = Colors.charlestonGreen,
+    override val colorAccent: Color = Colors.sunGlow,
+    override val colorPrimaryDark: Color = Colors.black,
+    override val colorTextPrimary: Color = Colors.white,
+    override val colorTextSecondary: Color = Colors.white.asDisabledColor()
 ) : BaseMovieComposeColors()

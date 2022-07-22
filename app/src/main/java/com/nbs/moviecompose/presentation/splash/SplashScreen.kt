@@ -1,4 +1,4 @@
-package com.nbs.moviecompose.presentation
+package com.nbs.moviecompose.presentation.splash
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

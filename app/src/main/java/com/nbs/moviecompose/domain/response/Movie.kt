@@ -1,38 +1,26 @@
 package com.nbs.moviecompose.domain.response
 
-import com.google.gson.annotations.SerializedName
+import android.os.Parcelable
 import com.nbs.moviecompose.utils.emptyString
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Movie(
-    @SerializedName("poster_path")
-    var posterPath: String?,
-    @SerializedName("video")
-    var video: Boolean?,
-    @SerializedName("overview")
-    var overview: String?,
-    @SerializedName("popularity")
-    var popularity: Double?,
-    @SerializedName("adult")
-    var adult: Boolean?,
-    @SerializedName("original_title")
-    var originalTitle: String?,
-    @SerializedName("id")
-    var id: Long?,
-    @SerializedName("backdrop_path")
-    var backdropPath: String?,
-    @SerializedName("genre_ids")
-    var genreIds: List<Int>?,
-    @SerializedName("vote_count")
-    var voteCount: Int?,
-    @SerializedName("title")
-    var title: String?,
-    @SerializedName("vote_average")
-    var voteAverage: Double?,
-    @SerializedName("original_language")
-    var originalLanguage: String?,
-    @SerializedName("release_date")
-    var releaseDate: String?
-){
+    var posterPath: String,
+    var video: Boolean,
+    var overview: String,
+    var popularity: Double,
+    var adult: Boolean,
+    var originalTitle: String,
+    var id: Long,
+    var backdropPath: String,
+    var genreIds: List<Int>,
+    var voteCount: Int,
+    var title: String,
+    var voteAverage: Double,
+    var originalLanguage: String,
+    var releaseDate: String
+) : Parcelable{
     companion object {
         fun dummy() = Movie(
             emptyString(),

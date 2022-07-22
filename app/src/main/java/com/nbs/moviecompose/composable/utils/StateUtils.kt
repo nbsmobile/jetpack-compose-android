@@ -1,7 +1,5 @@
 package com.nbs.moviecompose.composable.utils
 
-import android.accounts.AccountManager
-import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import com.nbs.moviecompose.R
@@ -10,8 +8,6 @@ import com.nbs.moviecompose.data.base.ErrorCodes
 import com.nbs.moviecompose.data.base.Resource
 import com.nbs.moviecompose.utils.ContextProvider
 import com.nbs.moviecompose.utils.emptyString
-import org.koin.core.component.inject
-import org.koin.java.KoinJavaComponent.inject
 import retrofit2.HttpException
 
 inline fun <reified T> getValue(resource: Resource<T>?): T {

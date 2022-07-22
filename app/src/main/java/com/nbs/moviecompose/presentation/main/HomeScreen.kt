@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalPagerApi::class)
 
-package com.nbs.moviecompose.presentation
+package com.nbs.moviecompose.presentation.main
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -9,9 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -34,12 +32,12 @@ import com.nbs.moviecompose.BuildConfig
 import com.nbs.moviecompose.R
 import com.nbs.moviecompose.composable.component.BaseImageView
 import com.nbs.moviecompose.composable.component.VerticalSpace
-import com.nbs.moviecompose.composable.style.Colors
 import com.nbs.moviecompose.composable.style.Dimensions
 import com.nbs.moviecompose.composable.style.MovieComposeTheme
 import com.nbs.moviecompose.composable.style.TextSizes
 import com.nbs.moviecompose.composable.utils.*
 import com.nbs.moviecompose.domain.response.Movie
+import com.nbs.moviecompose.presentation.detail.DetailActivity
 import com.nbs.moviecompose.viewmodel.MovieViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -59,7 +57,7 @@ fun HomeScreen(navigator: DestinationsNavigator) {
 
     val movieViewModel = getViewModel<MovieViewModel>()
     val popularMovieState = movieViewModel.popularMovies.observeAsState()
-    val nowPlayingMovieState = movieViewModel.popularMovies.observeAsState()
+    val nowPlayingMovieState = movieViewModel.nowPlayingMovies.observeAsState()
 
     val isLoadingPopular = remember { mutableStateOf(false) }
 
@@ -87,6 +85,7 @@ fun HomeScreen(navigator: DestinationsNavigator) {
 
     LaunchedEffect(key1 = Unit) {
         movieViewModel.getPopularMovies()
+        movieViewModel.getNowPlayingMovies()
     }
 
     ComposableObserver(state = popularMovieState,
@@ -143,7 +142,8 @@ fun HomeScreen(navigator: DestinationsNavigator) {
                     HomeCarouselView(
                         movies = popularMovies.value,
                         onMoviesItemClicked = {
-
+                            DetailActivity.start(activity, it)
+                            activity.finish()
                         },
                         isLoadingPopular = isLoadingPopular.value
                     )
@@ -165,7 +165,8 @@ fun HomeScreen(navigator: DestinationsNavigator) {
                 MovieItem(
                     movie = nowPlayingMovies.value[index],
                     onMoviesItemClicked = {
-
+                        DetailActivity.start(activity, it)
+                        activity.finish()
                     },
                     isLoadingNowPlaying = isLoadingNowPlaying.value
                 )
@@ -206,7 +207,7 @@ fun HomeCarouselView(
                 }
         ) { page ->
             BaseImageView(
-                url = BuildConfig.IMAGE_BASE_URL + movies[page].backdropPath.orEmpty(),
+                url = BuildConfig.IMAGE_BASE_URL + movies[page].backdropPath,
                 modifier = Modifier
                     .width((configuration.screenWidthDp / 6 * 5).dp)
                     .aspectRatio(2f)
@@ -259,7 +260,7 @@ fun MovieItem(movie: Movie, isLoadingNowPlaying: Boolean, onMoviesItemClicked: (
                 .padding(Dimensions.SIZE_16)
         ) {
             BaseImageView(
-                url = BuildConfig.IMAGE_BASE_URL + movie.posterPath.orEmpty(),
+                url = BuildConfig.IMAGE_BASE_URL + movie.posterPath,
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(0.7f)
@@ -274,7 +275,7 @@ fun MovieItem(movie: Movie, isLoadingNowPlaying: Boolean, onMoviesItemClicked: (
             VerticalSpace(size = Dimensions.SIZE_8)
 
             Text(
-                text = movie.title.orEmpty(),
+                text = movie.title,
                 style = MovieComposeTheme.typography.medium.withSize(TextSizes.SIZE_14)
                     .withColor(MovieComposeTheme.colors.colorTextPrimary)
             )
