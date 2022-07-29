@@ -25,3 +25,5 @@ fun Activity.getStatusBarHeight(): Int {
     }
     return result
 }
+
+const val emailRegex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"

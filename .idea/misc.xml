@@ -9,6 +9,9 @@
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.1525" />
         <entry key="app/src/main/res/drawable/ic_award.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_password_hide.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/ic_password_show.xml" value="0.167" />
+        <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.167" />
         <entry key="app/src/main/res/drawable/ic_watch.xml" value="0.1525" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.2947916666666667" />
       </map>

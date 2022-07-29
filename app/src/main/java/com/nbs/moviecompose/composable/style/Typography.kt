@@ -18,26 +18,26 @@ object MovieComposeFonts {
 data class MovieComposeTypography(
     override val medium: TextStyle = TextStyle(
         fontFamily = MovieComposeFonts.medium.toFontFamily(),
-        fontSize = TextSizes.SIZE_1,
+        fontSize = TextSizes.SIZE_12,
         fontWeight = FontWeight.Medium,
-        color = Colors.black
+        color = Colors.white
     ),
     override val bold: TextStyle = TextStyle(
         fontFamily = MovieComposeFonts.bold.toFontFamily(),
-        fontSize = TextSizes.SIZE_1,
+        fontSize = TextSizes.SIZE_12,
         fontWeight = FontWeight.Bold,
-        color = Colors.black
+        color = Colors.white
     ),
     override val light: TextStyle = TextStyle(
         fontFamily = MovieComposeFonts.light.toFontFamily(),
-        fontSize = TextSizes.SIZE_1,
+        fontSize = TextSizes.SIZE_12,
         fontWeight = FontWeight.Light,
-        color = Colors.black
+        color = Colors.white
     ),
     override val normal: TextStyle = TextStyle(
         fontFamily = MovieComposeFonts.regular.toFontFamily(),
-        fontSize = TextSizes.SIZE_1,
+        fontSize = TextSizes.SIZE_12,
         fontWeight = FontWeight.Normal,
-        color = Colors.black,
+        color = Colors.white
     )
 ) : BaseMovieComposeTypography()

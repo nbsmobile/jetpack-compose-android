@@ -14,6 +14,7 @@ object Colors {
     val charlestonGreen: Color = Color(getColorIntFromRes(R.color.colorRaisinBlack))
     val sunGlow: Color = Color(getColorIntFromRes(R.color.colorSunGlow))
     val transparent: Color = Color(getColorIntFromRes(R.color.transparent))
+    val red: Color = Color.Red
 }
 
 // Color Movie Compose Theme

@@ -16,7 +16,9 @@ import com.nbs.moviecompose.presentation.main.HomeScreen
 import com.nbs.moviecompose.presentation.NavGraphs
 import com.nbs.moviecompose.presentation.main.AwardScreen
 import com.nbs.moviecompose.presentation.destinations.HomeScreenDestination
+import com.nbs.moviecompose.presentation.destinations.ProfileScreenDestination
 import com.nbs.moviecompose.presentation.destinations.AwardScreenDestination
+import com.nbs.moviecompose.presentation.main.ProfileScreen
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.manualcomposablecalls.composable
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -35,6 +37,9 @@ fun MainNavigationGraph(
         composable(AwardScreenDestination) {
             AwardScreen(navigator)
         }
+        composable(ProfileScreenDestination) {
+            ProfileScreen(navigator)
+        }
     }
 }
 
@@ -43,6 +48,7 @@ fun BottomNavigationMain(navController: NavController) {
     val items = listOf(
         MainBottomNavItem.Home,
         MainBottomNavItem.Award,
+        MainBottomNavItem.Profile
     )
     BottomNavigation(
         backgroundColor = MovieComposeTheme.colors.colorPrimaryDark,
@@ -51,7 +57,7 @@ fun BottomNavigationMain(navController: NavController) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
         items.forEachIndexed { i, item ->
-            if (i == 2) Spacer(modifier = Modifier.weight(0.8f, true))
+            if (i == 3) Spacer(modifier = Modifier.weight(0.8f, true))
 
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = item.icon), contentDescription = item.title) },
